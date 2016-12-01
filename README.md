@@ -21,7 +21,7 @@ This project is initially intended to work locally, however can be adapted for a
 
 * Clone this repository
 ```bash
-git@github.com:rguareschi/ansible-rancher.git
+git clone git@github.com:rguareschi/ansible-rancher.git
 ```
 
 * Review the **vars/global.yml** file for *server, node and api* versions. Here's an example:
