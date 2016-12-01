@@ -1,8 +1,29 @@
 ---
-
 - name: Get Local Directory
   local_action: shell pwd
   register: local_dir
+
+- name: Get GID
+  local_action: shell id -g {{ ansible_user }}
+  register: local_gid
+
+- name: Create Local Storage
+  file:
+    path: "{{ local_dir.stdout }}/{{ rancher_local_data_path }}"
+    state: directory
+    owner: "{{ ansible_user }}"
+    mode: 0755
+
+- name: Setting uid and gid
+  shell: "chown -R :{{ local_gid.stdout }} .rancher"
+
+# - name: Prepare Local Storage
+#   file:
+#     path: "{{ local_dir.stdout }}/{{ rancher_local_data_path }}"
+#     state: directory
+#     owner: "{{ local_uid.stdout }}"
+#     group: "{{ local_gid.stdout }}"
+#     mode: 0755
 
 - name: Make sure docker-py is installed
   pip:

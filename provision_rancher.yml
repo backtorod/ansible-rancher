@@ -1,6 +1,6 @@
 ---
 
-- name: "# Setting up Rancher Server and Rancher Node"
+- name: Setting up Rancher Server and Rancher Node
   hosts: localhost
   connection: local
   become: yes

@@ -1,6 +1,6 @@
 ---
 
-- name: "# Setting up Rancher Node"
+- name: Setting up Rancher Node
   hosts: localhost
   connection: local
   vars_files:

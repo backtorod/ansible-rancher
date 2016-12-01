@@ -4,6 +4,11 @@ Despite the fact that Rancher Labs can easily be installed ( a couple of Docker 
 
 This project is initially intended to work locally, however can be adapted for a more complex provisioning.
 
+## Supported Platforms
+
+* MacOS
+* Linux
+
 ## Requirements
 
 1. Ansible
@@ -32,10 +37,7 @@ rancher_api: : "v1"
 1. To provision the complete stack, run the **provision_master.yml** playbook:
 ```bash
 pushd ansible-rancher
-ansible-playbook -vvv \
-  --ask-sudo-pass \
-  --user ${USER} \
-  provision_rancher.yml
+ansible-playbook -vvv --ask-sudo-pass --user $(id -u $USER) provision_rancher.yml
 ```
 
 2. Role **rancher_master** will add the following entry on /etc/hosts:
