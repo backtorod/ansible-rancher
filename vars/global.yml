@@ -3,7 +3,7 @@
 # version control
 rancher_version: "latest"
 rancher_agent_version: "latest"
-rancher_api: : "v1"
+rancher_api: "v1"
 
 # master
 rancher_name: master
