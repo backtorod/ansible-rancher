@@ -1,0 +1,21 @@
+---
+
+# version control
+rancher_version: v1.2.0-pre4-rc14
+rancher_agent_version: v1.1.0-rc16
+rancher_api: v1
+
+# master
+rancher_name: master
+rancher_server: "{{ ansible_default_ipv4.address }}"
+rancher_port: 10000
+rancher_fqdn: rancher.local
+rancher_hosts_comment: "# Added by Ansible Rancher Labs Provisioning"
+rancher_url: "http://{{ rancher_server }}:{{rancher_port }}"
+
+# nodes
+rancher_agent_name: agent
+
+# datastore
+rancher_local_data_path: ".rancher"
+rancher_container_data_path: "/var/lib/mysql"

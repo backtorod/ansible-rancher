@@ -1,0 +1,9 @@
+---
+
+- name: "# Setting up Rancher Node"
+  hosts: localhost
+  connection: local
+  vars_files:
+    - vars/global.yml
+  roles:
+    - { role: rancher_node }
