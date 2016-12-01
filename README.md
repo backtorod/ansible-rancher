@@ -19,12 +19,12 @@ This project is initially intended to work locally, however can be adapted for a
 
 ## Installation
 
-1. Clone this repository
+* Clone this repository
 ```bash
 git@github.com:rguareschi/ansible-rancher.git
 ```
 
-2. Review the **vars/global.yml** file for *server, node and api* versions. Here's an example:
+* Review the **vars/global.yml** file for *server, node and api* versions. Here's an example:
 ```bash
 # version control
 rancher_version: "latest"
@@ -34,13 +34,13 @@ rancher_api: : "v1"
 
 ## Usage
 
-1. To provision the complete stack, run the **provision_master.yml** playbook:
+* To provision the complete stack, run the **provision_master.yml** playbook:
 ```bash
 pushd ansible-rancher
 ansible-playbook -vvv --ask-sudo-pass --user $(id -u $USER) provision_rancher.yml
 ```
 
-2. Role **rancher_master** will add the following entry on /etc/hosts:
+* Role **rancher_master** will add the following entry on /etc/hosts:
    To modify default values (IP address, FQDN and comment), check the **vars/global.yml** file for *rancher_server, rancher_fqdn and rancher_hosts_comment* variables
 ```bash
 192.168.2.180 rancher.local # Added by Ansible Rancher Labs Provisioning
