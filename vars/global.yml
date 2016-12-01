@@ -1,9 +1,9 @@
 ---
 
 # version control
-rancher_version: v1.2.0-pre4-rc14
-rancher_agent_version: v1.1.0-rc16
-rancher_api: v1
+rancher_version: "latest"
+rancher_agent_version: "latest"
+rancher_api: : "v1"
 
 # master
 rancher_name: master
