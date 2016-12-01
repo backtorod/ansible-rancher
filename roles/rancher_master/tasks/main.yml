@@ -4,6 +4,10 @@
   local_action: shell pwd
   register: local_dir
 
+- name: Make sure docker-py is installed
+  pip:
+    name: docker-py
+
 - name: Prepare Local Storage
   file:
     path: "{{ local_dir.stdout }}/{{ rancher_local_data_path }}"

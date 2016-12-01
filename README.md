@@ -8,12 +8,23 @@ This project is initially intended to work locally, however can be adapted for a
 
 1. Ansible
 2. Docker
+3. Python
+4. python-pip (https://pip.pypa.io/en/stable/installing/)
+5. docker-py (https://github.com/docker/docker-py)
 
 ## Installation
 
 1. Clone this repository
 ```bash
 git@github.com:rguareschi/ansible-rancher.git
+```
+
+2. Review the **vars/global.yml** file for *server, node and api* versions. Here's an example:
+```bash
+# version control
+rancher_version: "latest"
+rancher_agent_version: "latest"
+rancher_api: : "v1"
 ```
 
 ## Usage
@@ -32,6 +43,16 @@ ansible-playbook -vvv \
 ```bash
 192.168.2.180 rancher.local # Added by Ansible Rancher Labs Provisioning
 ```
+
+## Storage
+Rancher data will be stored in the .rancher folder within the repository directory. This folder is ignored by Git.
+
+```shell
+pushd ansible-rancher
+ls -lah .rancher
+```
+
+If you decide to provision a new Rancher stack, make sure to delete this folder prior to run the playbooks.
 
 ## Contributing
 
