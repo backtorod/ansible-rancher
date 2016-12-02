@@ -1,23 +1,23 @@
 ---
-- name: Storage: get local directory
+- name: Get local directory
   local_action: shell pwd
   register: local_dir
 
-- name: Storage: get gid
+- name: Get gid
   local_action: shell id -g {{ ansible_user }}
   register: local_gid
 
-- name: Storage: create .rancher folder
+- name: Create .rancher folder
   file:
     path: "{{ local_dir.stdout }}/{{ rancher_local_data_path }}"
     state: directory
     owner: "{{ ansible_user }}"
     mode: 0755
 
-- name: Storage: setting gid permissions
+- name: Set gid permissions on .rancher folder
   shell: "chown -R :{{ local_gid.stdout }} .rancher"
 
-- name: Dependencis: make sure docker-py is installed
+- name: Make sure docker-py is installed
   pip:
     name: docker-py
 
